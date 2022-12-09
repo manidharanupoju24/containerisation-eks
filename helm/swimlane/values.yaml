@@ -4,9 +4,16 @@
 
 replicaCount: 1
 
+
+deployment:
+  imageReact: kellydockerhub/swimlane-react
+  imageMongo: mongo
+  tag: latest
 appName: swimlane-react
 
 dbName: mongo-db
+
+mongoPort: 27017
 
 image:
   repository: nginx

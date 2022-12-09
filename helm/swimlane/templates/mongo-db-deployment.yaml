@@ -19,10 +19,10 @@ spec:
         app: {{ .Values.dbName }}
     spec:
       containers:
-        - image: mongo:latest
+        - image: {{ .Values.deployment.imageMongo }}:{{ .Values.deployment.tag }}
           name: db-container
           ports:
-            - containerPort: 27017
+            - containerPort: {{ .Values.mongoPort }}
           resources: {}
           volumeMounts:
             - mountPath: /data/db

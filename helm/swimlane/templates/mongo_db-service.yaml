@@ -8,8 +8,8 @@ metadata:
 spec:
   ports:
     - name: "27017"
-      port: 27017
-      targetPort: 27017
+      port: {{ .Values.mongoPort }}
+      targetPort: {{ .Values.mongoPort }}
   selector:
     app: {{ .Values.dbName }}-database
 status:

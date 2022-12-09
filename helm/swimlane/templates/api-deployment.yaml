@@ -19,8 +19,8 @@ spec:
       containers:
         - env:
             - name: MONGODB_URL
-              value: mongodb://mongo_db:27017/
-          image: kellydockerhub/swimlane-react:latest
+              value: mongodb://mongo-db:27017/admin
+          image: {{ .Values.deployment.imageReact }}:{{ .Values.deployment.tag }}
           name: {{ .Values.appName }}
           ports:
             - containerPort: 3000
