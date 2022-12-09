@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: {{ .Values.appName }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+      creationTimestamp: null
+      labels:
+        app: {{ .Values.appName }}
+    spec:
+      containers:
+        - env:
+            - name: MONGODB_URL
+              value: mongodb://mongo_db:27017/
+          image: kellydockerhub/swimlane-react:latest
+          name: {{ .Values.appName }}
+          ports:
+            - containerPort: 3000
+            - containerPort: 443
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}
