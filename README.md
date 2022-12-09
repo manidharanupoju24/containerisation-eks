@@ -10,5 +10,5 @@ helm install swimlane swimlane
 ```
 2) Uninstalling a chart
 ```
-helm install swimlane swimlane 
+helm uninstall swimlane 
 ```
