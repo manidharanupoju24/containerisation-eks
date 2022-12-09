@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null
-  name: {{ .Values.appName }}
+  name: {{ .Values.appName }}-deployment
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.appName }}
+      app: {{ .Values.appName }}-deployment
   strategy: {}
   template:
     metadata:
       annotations:
       creationTimestamp: null
       labels:
-        app: {{ .Values.appName }}
+        app: {{ .Values.appName }}-deployment
     spec:
       containers:
         - env:
@@ -24,8 +24,8 @@ spec:
           name: {{ .Values.appName }}
           ports:
             - containerPort: 3000
-            - containerPort: 443
-            - containerPort: 80
+           # - containerPort: 443
+           # - containerPort: 80
           resources: {}
       restartPolicy: Always
 status: {}
