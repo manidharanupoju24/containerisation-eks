@@ -8,9 +8,10 @@ metadata:
 spec:
   ports:
     - name: "27017"
-      port: {{ .Values.mongoPort }}
-      targetPort: {{ .Values.mongoPort }}
+      port: 27017
+      targetPort: 27017
   selector:
     app: {{ .Values.dbName }}-database
+  type: NodePort
 status:
   loadBalancer: {}

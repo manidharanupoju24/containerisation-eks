@@ -18,8 +18,8 @@ spec:
     spec:
       containers:
         - env:
-            - name: MONGODB_URL
-              value: mongodb://mongo-db:27017/admin
+          - name: MONGODB_URL
+            value: mongodb://mongo-db-database:27017/admin
           image: {{ .Values.deployment.imageReact }}:{{ .Values.deployment.tag }}
           name: {{ .Values.appName }}
           ports:

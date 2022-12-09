@@ -22,5 +22,6 @@ spec:
   selector:
     matchLabels: {{ .Values.appName }}
     identifier: {{ .Values.appName }}
+  type: NodePort
 status:
   loadBalancer: {}
