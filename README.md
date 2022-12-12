@@ -13,4 +13,6 @@ helm install swimlane swimlane
 helm uninstall swimlane 
 ```
 
-### Using Terraform 
+### Using Terraform
+
+Terraform scripts would create the whole EKS cluster and the associated infra related to it in AWS
