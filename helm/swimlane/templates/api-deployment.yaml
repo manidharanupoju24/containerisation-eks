@@ -19,7 +19,7 @@ spec:
       containers:
         - env:
           - name: MONGODB_URL
-            value: mongodb://mongo-db-database:27017/admin
+            value: "mongodb://username:password@mongo-db-database:27017/"
           image: {{ .Values.deployment.imageReact }}:{{ .Values.deployment.tag }}
           name: {{ .Values.appName }}
           ports:

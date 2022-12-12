@@ -9,25 +9,35 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: mongo-db
+      app: {{ .Values.dbName }}-deployment
   strategy:
     type: Recreate
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: {{ .Values.dbName }}
+        app: {{ .Values.dbName }}-deployment
     spec:
       containers:
         - image: {{ .Values.deployment.imageMongo }}:{{ .Values.deployment.tag }}
-          name: db-container
+          name: {{ .Values.dbName }}-deployment
           ports:
             - containerPort: {{ .Values.mongoPort }}
-              name: {{ .Values.dbName }}
           resources: {}
           volumeMounts:
             - mountPath: "/data/db"
               name: {{ .Values.dbName }}
+          env:
+          - name: MONGO_INITDB_ROOT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongo-creds
+                key: username
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongo-creds
+                key: password
       restartPolicy: Always
       volumes:
         - name: {{ .Values.dbName }}

@@ -7,9 +7,10 @@ metadata:
   name: {{ .Values.dbName }}-database
 spec:
   ports:
-    - name: "27017"
-      port: 27017
+    - port: 27017
       targetPort: 27017
+      protocol: TCP
+      nodePort: 32000
   selector:
     app: {{ .Values.dbName }}-database
   type: NodePort
