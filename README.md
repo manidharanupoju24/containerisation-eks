@@ -12,3 +12,5 @@ helm install swimlane swimlane
 ```
 helm uninstall swimlane 
 ```
+
+### Using Terraform 
