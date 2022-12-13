@@ -3,16 +3,14 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ .Values.dbName }}-database
-  name: {{ .Values.dbName }}-database
+    app: {{ .Values.dbName }}-deployment
+  name: {{ .Values.dbName }}-deployment
 spec:
   ports:
     - port: 27017
       targetPort: 27017
       protocol: TCP
-      nodePort: 32000
   selector:
-    app: {{ .Values.dbName }}-database
-  type: NodePort
+    app: {{ .Values.dbName }}-deployment
 status:
   loadBalancer: {}

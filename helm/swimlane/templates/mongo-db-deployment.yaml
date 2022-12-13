@@ -27,17 +27,17 @@ spec:
           volumeMounts:
             - mountPath: "/data/db"
               name: {{ .Values.dbName }}
-          env:
-          - name: MONGO_INITDB_ROOT_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: mongo-creds
-                key: username
-          - name: MONGO_INITDB_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mongo-creds
-                key: password
+#          env:
+#          - name: MONGO_INITDB_ROOT_USERNAME
+#            valueFrom:
+#              secretKeyRef:
+#                name: mongo-creds
+#                key: username
+#          - name: MONGO_INITDB_ROOT_PASSWORD
+#            valueFrom:
+#             secretKeyRef:
+#               name: mongo-creds
+#                key: password
       restartPolicy: Always
       volumes:
         - name: {{ .Values.dbName }}
